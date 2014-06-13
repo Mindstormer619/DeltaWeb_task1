@@ -26,6 +26,11 @@
 				setFormatter(3)
 			},
 			false );
+		$('favcolor').addEventListener( 'change',
+			function() {
+				$('totalC').style.color = $('favcolor').value;
+			},
+			false );
 	}
 	
 	function setFormatter(tog) {
@@ -64,12 +69,16 @@
 </head>
 <body>
 
-<div id="totalC" contenteditable="true" style="width:100%; height:500px; border-style:solid;">
+<div id="totalC" contenteditable="true" style="width:100%; height:500px; border-style:solid; border-color:#000000">
 </div>
 
 <button id="boldB"><b>BOLD!</b></button>
 <button id="italB"><i>ITALIC!</i></button>
-<button id="undlB"><u>UNDERLINE!</u></button>
-
+<button id="undlB"><u>UNDERLINE!</u></button><br>
+<button id="doldB"><b>dOlD!<b></button>
+<button id="ditalB"><i>dItAlIcS!</i></button><br>
+<form>
+	Color: <input type="color" id="favcolor" /><br>
+</form>
 </body>
 </html>
