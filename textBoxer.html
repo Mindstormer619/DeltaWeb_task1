@@ -26,6 +26,16 @@
 				setFormatter(3)
 			},
 			false );
+		$('doldB').addEventListener( 'click',
+			function() {
+				setFormatter(4)
+			},
+			false );
+		$('ditalB').addEventListener( 'click',
+			function() {
+				setFormatter(5)
+			},
+			false );
 		$('favcolor').addEventListener( 'change',
 			function() {
 				$('totalC').style.color = $('favcolor').value;
@@ -64,12 +74,60 @@
 				$('totalC').style.textDecoration='underline';
 			}
 		}
+		else if(tog==4) {//bold
+			if (bFlag==1) {
+				bFlag=0
+				$('totalC').style.fontWeight='normal';
+			}
+			else {
+				bFlag=1
+				$('totalC').style.fontWeight='bold';
+			}
+			var nStr = '';
+			var uTog = 0;
+			var cStr = $('totalC').innerHTML;
+			for (var i = 0; i<cStr.length; i++) {
+				if (uTog==0) {
+					nStr += cStr.charAt(i).toLowerCase();
+					uTog=1
+				}
+				else {
+					nStr += cStr.charAt(i).toUpperCase();
+					uTog=0
+				}
+			}
+			$('totalC').innerHTML = nStr;
+		}
+		else if(tog==5) {//ditalic
+			if (iFlag==1) {
+				iFlag=0
+				$('totalC').style.fontStyle='normal';
+			}
+			else {
+				iFlag=1
+				$('totalC').style.fontStyle='italic';
+			}
+			var nStr = '';
+			var uTog = 0;
+			var cStr = $('totalC').innerHTML;
+			for (var i = 0; i<cStr.length; i++) {
+				if (uTog==0) {
+					nStr += cStr.charAt(i).toLowerCase();
+					uTog=1
+				}
+				else {
+					nStr += cStr.charAt(i).toUpperCase();
+					uTog=0
+				}
+			}
+			$('totalC').innerHTML = nStr;
+		}
 	}
 </script>
 </head>
 <body>
 
-<div id="totalC" contenteditable="true" style="width:100%; height:500px; border-style:solid; border-color:#000000">
+<div id="totalC" contenteditable="true" style="width:100%; height:500px; border-style:solid; border-color:#000000;">
 </div>
 
 <button id="boldB"><b>BOLD!</b></button>
