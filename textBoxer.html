@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html>
+<head>
+
+<script>
+	function $(id) {
+		return document.getElementById(id);
+	}
+	var bFlag = 0
+	var iFlag = 0
+	var uFlag = 0
+	window.onload = function() {
+		$('boldB').addEventListener( 'click',
+			function() {
+				setFormatter(1)
+			},
+			false );
+		$('italB').addEventListener( 'click',
+			function() {
+				setFormatter(2)
+			},
+			false );
+		$('undlB').addEventListener( 'click',
+			function() {
+				setFormatter(3)
+			},
+			false );
+	}
+	
+	function setFormatter(tog) {
+		if(tog==1) {//bold
+			if (bFlag==1) {
+				bFlag=0
+				$('totalC').style.fontWeight='normal';
+			}
+			else {
+				bFlag=1
+				$('totalC').style.fontWeight='bold';
+			}
+		}
+		else if(tog==2) {//ital
+			if (iFlag==1) {
+				iFlag=0
+				$('totalC').style.fontStyle='normal';
+			}
+			else {
+				iFlag=1
+				$('totalC').style.fontStyle='italic';
+			}
+		}
+		else if(tog==3) {//underL
+			if (uFlag==1) {
+				uFlag=0
+				$('totalC').style.textDecoration='none';
+			}
+			else {
+				uFlag=1
+				$('totalC').style.textDecoration='underline';
+			}
+		}
+	}
+</script>
+</head>
+<body>
+
+<div id="totalC" contenteditable="true" style="width:100%; height:500px; border-style:solid;">
+</div>
+
+<button id="boldB"><b>BOLD!</b></button>
+<button id="italB"><i>ITALIC!</i></button>
+<button id="undlB"><u>UNDERLINE!</u></button>
+
+</body>
+</html>
